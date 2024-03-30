@@ -44,9 +44,11 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Startup HTTP Server for pipeline tests
       uses: Eun/http-server-action@v1.0.11
-      with:
+      with:        
         directory: .
-        port: 5500
+        port: 5500 
+        index-files: |
+          ["index.html", "index.htm"]   
     - name: Run tests
       run: |
         pytest
